@@ -1,5 +1,5 @@
 # SDL_circle
-A addon for SDL2 to make circles and an edit from a github gist by derofim. Orginal Gist: https://gist.github.com/derofim/912cfc9161269336f722
+A addon for SDL2 to make circles and an edit from a github gist by derofim (added Circle, edited functions and turned it into a headerfile). Orginal Gist: https://gist.github.com/derofim/912cfc9161269336f722
 
 # How to install?
 
