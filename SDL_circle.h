@@ -9,11 +9,11 @@ added circle class to make it look better
 renamed some things to clean the code up and make it more like SDL_RendererDrawRect/SDL_RendererFillRect
 */ 
 
-typedef struct SDL_Circle{
+struct SDL_Circle{
 	int x;
 	int y;
 	int radius;
-} SDL_Circle;
+}
 
 struct SDL_color{int r;int g;int b;int a;};
 
