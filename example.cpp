@@ -21,8 +21,9 @@ int main(){
             }
         }
         SDL_RenderClear(renderer);
-        SDL_RenderDrawCircle(renderer,circle,{255,0,0,255});
-        SDL_RenderFillCircle(renderer,circle,{255,0,0,255});
+        SDL_SetRenderDrawColor(renderer,255,0,0,0);
+        SDL_RenderDrawCircle(renderer,&circle);
+        SDL_RenderFillCircle(renderer,&circle);
         SDL_SetRenderDrawColor(renderer,255,255,255,255);
         SDL_RenderPresent(renderer);
     }
