@@ -15,8 +15,6 @@ struct SDL_Circle{
 	int radius;
 }
 
-struct SDL_color{int r;int g;int b;int a;};
-
 //ex. SDL_RenderDrawCircle(renderer,circle)
 void SDL_RenderDrawCircle(SDL_Renderer *surface, SDL_Circle cir)
 {
