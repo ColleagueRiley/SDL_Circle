@@ -17,8 +17,6 @@ renamed some things
 
 
 
-//The window renderer
-SDL_Renderer* gRenderer = NULL;
 
 
 struct SDL_Circle{
@@ -102,7 +100,7 @@ void SDL_RenderDrawCircle(SDL_Renderer *surface, SDL_Circle cir, SDL_Color c)
 }
 
 //ex. SDL_RenderFillCircle(renderer,circle,{0,0,0,255})
-void SDL_RenderFillCircle(SDL_Renderer *surface, SDL_Circle cir, SDL_Color c)
+void SDL_RenderFillCircle(SDL_Renderer* gRenderer, SDL_Circle cir, SDL_Color c)
 {
 	int cx = cir.x;
 	int cy = cir.y;
