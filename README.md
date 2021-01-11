@@ -10,20 +10,18 @@ OR you could move it to your copy of SDL2 so you can just do `#include <SDL2_SDL
 # objects
    SDL_Circle
       int x - x var
+      
       int y - y var
+      
       int radius - radius
 
 
 # functions
-  set_pixel(SDL_Renderer *rend, int x, int y, SDL_color c)  - Draws a pixel/point on the renderer
+  SDL_RenderDrawCircle(SDL_Renderer *surface, *SDL_Circle cir) - Draws a circle on the renderer
   
-  ex.  SDL_RenderSetPixel(renderer, 25, 25, {255,0,0,255});
+  ex. SDL_RenderDrawCircle(renderer, &circle);
   
-  SDL_RenderDrawCircle(SDL_Renderer *surface, SDL_Circle cir, SDL_color c) - Draws a circle on the renderer
+  SDL_RenderFillCircle(SDL_Renderer *surface, *SDL_Circle cir) - Fills circle on the screen
   
-  ex. SDL_RenderDrawCircle(renderer, circle,{255,0,0,255});
-  
-  SDL_RenderFillCircle(SDL_Renderer *surface, SDL_Circle cir, SDL_color c) - Fills circle on the screen
-  
-  ex. SDL_RenderFillCircle(renderer, circle, {255,0,0,255})
+  ex. SDL_RenderFillCircle(renderer, &circle)
   
