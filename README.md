@@ -9,7 +9,7 @@ OR you could move it to your copy of SDL2 so you can just do `#include <SDL2_SDL
 
 # objects
    SDL_Circle
-      int x - x ver
+      int x - x var
       int y - y var
       int radius - radius
 
