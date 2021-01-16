@@ -31,7 +31,7 @@ OR you could move it to your copy of SDL2 so you can just do `#include <SDL2_SDL
    
    ex. if (SDL_CircleCollide(circle,circle2)){//do something}
    
-   int SDL_CircleCollideRect(SDL_Circle c, SDL_Rect r) - If circle collides with rect return 1 else return 0
+   int SDL_CircleCollideRect(SDL_Circle c, SDL_Rect r) - If cir cle collides with rect return 1 else return 0
    
    ex. if (SDL_CircleCollideRect(circle,rect)){//do something}
    
@@ -44,3 +44,24 @@ OR you could move it to your copy of SDL2 so you can just do `#include <SDL2_SDL
    if (SDL_CircleCollideRect(circle,{e.motion.x,e.motion.y})){//do something}
 
    in this case e would be "SDL_Event e;"
+
+
+# Example.cpp
+Example of how the wrapper would work
+
+how to make (Windows):
+    way 1 (batch).
+      
+      cd into the dirrectory using command prompt
+      
+      run command `make.bat`
+        
+    way 2 (Makefile).
+            cd into the dirrectory using command prompt
+      
+            run command `make`
+
+how to make (GNU/Linux/Mac):
+     cd into the dirrectory using terminal
+
+     run the command `make`
