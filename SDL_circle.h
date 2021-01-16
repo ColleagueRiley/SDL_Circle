@@ -1,19 +1,22 @@
 #include <SDL2/SDL.h>
-
+#include <math.h>
 //source https://gist.github.com/derofim/912cfc9161269336f722
 /*
 Edits: Removed extra things to turn it into a .h file 
-edited the includes
+edited the includesc
 added circle class to make it more like SDL_RendererDrawRect
 added circle class to make it look better
 renamed some things to clean the code up and make it more like SDL_RendererDrawRect/SDL_RendererFillRect
+
+biggest addition:
+	added collision checking functions
 */ 
 
-struct SDL_Circle{
+typedef struct SDL_Circle{
 	int x;
 	int y;
 	int radius;
-}
+} SDL_Circle;
 
 //ex. SDL_RenderDrawCircle(renderer,circle)
 void SDL_RenderDrawCircle(SDL_Renderer *surface, SDL_Circle cir)
@@ -97,14 +100,31 @@ void SDL_RenderFillCircle(SDL_Renderer* gRenderer, SDL_Circle cir)
 		SDL_RenderDrawLine(gRenderer, cx - dx, cy - dy + radius, cx + dx, cy - dy + radius);
 
 		// Grab a pointer to the left-most pixel for each half of the circle
-		/*Uint8 *target_pixel_a = (Uint8 *)surface->pixels + ((int)(cy + r - dy)) * surface->pitch + x * BPP;
-		Uint8 *target_pixel_b = (Uint8 *)surface->pixels + ((int)(cy - r + dy)) * surface->pitch + x * BPP;
-		for (; x <= cx + dx; x++)
-		{
-			*(Uint32 *)target_pixel_a = pixel;
-			*(Uint32 *)target_pixel_b = pixel;
-			target_pixel_a += BPP;
-			target_pixel_b += BPP;
-		}*/
 	}
 }
+
+int SDL_CircleCollide(SDL_Circle cir1,SDL_Circle cir2){
+	float distanceBetweenCircles = (float)sqrt(
+	(cir2.x - cir1.x) * (cir2.x - cir1.x) + 
+    (cir2.y - cir1.y) * (cir2.y - cir1.y)
+  	);
+	if (distanceBetweenCircles > cir1.radius + cir2.radius){return 0;}else{return 1;}
+}
+
+int SDL_CircleCollideRect(SDL_Circle c, SDL_Rect r){
+  float testX = c.x; float testY = c.y;
+
+  if (c.x < r.x) {testX = r.x;}  else if (c.x > r.x+r.w) {testX = r.x+r.w;}
+  if (c.y < r.y) {testY = r.y;}  else if (c.y > r.y+r.h) {testY = r.y+r.h;} 
+  
+  return (sqrt( ( (c.x-testX) * (c.x-testX) ) + ( (c.y-testY) *(c.y-testY) ) )  <= c.radius);
+}
+
+int SDL_CircleCollidePoint(SDL_Circle c, SDL_Rect p){
+	float testX = c.x; float testY = c.y;
+
+  	if (c.x < p.x) {testX = p.x;}  else if (c.x > p.x+p.w) {testX = p.x+p.w;}
+  	if (c.y < p.y) {testY = p.y;}  else if (c.y > p.y+p.h) {testY = p.y+p.h;} 
+  
+  	return (sqrt( ( (c.x-testX) * (c.x-testX) ) + ( (c.y-testY) *(c.y-testY) ) )  <= c.radius);
+}	
