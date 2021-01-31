@@ -7,6 +7,12 @@ Download the file and move it to where you'd like. You can move it to a include 
 
 OR you could move it to your copy of SDL2 so you can just do `#include <SDL2_SDL_circle>` (That'd be `/usr/include/SDL2` for linux)
 
+also in UNIX you can run the 'make' command and move the files in 'build/lib' to '/usr/lib' and 'build/include' to '/usr/include'
+
+
+
+
+
 # objects
    SDL_Circle
       int x - x var
